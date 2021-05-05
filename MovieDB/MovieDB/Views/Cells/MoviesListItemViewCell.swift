@@ -6,10 +6,9 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MoviesListItemViewCell: UITableViewCell {
-    
-    private var viewModel: MovieListItemViewModel = MovieListItemViewModel()
 
     // MARK: - IBoutlets
     
@@ -19,5 +18,11 @@ class MoviesListItemViewCell: UITableViewCell {
     // MARK: - Setup
     func setupMovieCell(movie: Movie) {
         movieNameLabel.text = movie.title
+        if let movieImageURL = movie.imageHref,
+           let url = URL(string: movieImageURL) {
+            movieImageView.kf.setImage(with: url)
+        } else {
+            movieImageView.image = UIImage(named: "imagePlaceholder")
+        }
     }
 }

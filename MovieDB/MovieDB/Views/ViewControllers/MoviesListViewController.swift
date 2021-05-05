@@ -25,6 +25,7 @@ class MoviesListViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableFooterView = UIView()
+        tableView.prefetchDataSource = .none
     }
 }
 
