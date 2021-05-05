@@ -9,20 +9,28 @@ import UIKit
 import Kingfisher
 
 class MoviesListItemViewCell: UITableViewCell {
-
-    // MARK: - IBoutlets
     
+    // MARK: - Constants
+    struct Constants {
+        static let placeholderImageName = "imagePlaceholder"
+    }
+    
+    // MARK: - Properties
+    var viewModel: MovieDetailsViewModel?
+
+    // MARK: - IBOutlets
     @IBOutlet weak var movieNameLabel: UILabel!
     @IBOutlet weak var movieImageView: UIImageView!
     
     // MARK: - Setup
     func setupMovieCell(movie: Movie) {
-        movieNameLabel.text = movie.title
-        if let movieImageURL = movie.imageHref,
-           let url = URL(string: movieImageURL) {
-            movieImageView.kf.setImage(with: url)
+        viewModel = MovieDetailsViewModel(movie: movie)
+        
+        movieNameLabel.text = viewModel?.getMovieTitle()
+        if let movieImageURL = viewModel?.getMovieImageURL() {
+            movieImageView.kf.setImage(with: movieImageURL)
         } else {
-            movieImageView.image = UIImage(named: "imagePlaceholder")
+            movieImageView.image = UIImage(named: Constants.placeholderImageName)
         }
     }
 }

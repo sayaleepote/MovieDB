@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  MovieDB
+
+  Created by Sayalee Pote on 05/05/21.
+  
+*/
+
+// MoviesList Screen
+"MoviesList.Title" = "Movies";

@@ -18,8 +18,9 @@
 		CF9246522641315E002180D3 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9246512641315E002180D3 /* MovieDetailsViewController.swift */; };
 		CF924655264131F4002180D3 /* MoviesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF924654264131F4002180D3 /* MoviesListViewModel.swift */; };
 		CF92465826413221002180D3 /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF92465726413221002180D3 /* MovieDetailsViewModel.swift */; };
-		CF92465B26413231002180D3 /* MovieListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF92465A26413231002180D3 /* MovieListItemViewModel.swift */; };
 		CF9246662641B321002180D3 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = CF9246652641B321002180D3 /* Kingfisher */; };
+		CF92466C2642DDBC002180D3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF92466B2642DDBC002180D3 /* Localizable.strings */; };
+		CF92466F2642DE0A002180D3 /* String+LocalizableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF92466E2642DE0A002180D3 /* String+LocalizableExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +37,8 @@
 		CF9246512641315E002180D3 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		CF924654264131F4002180D3 /* MoviesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListViewModel.swift; sourceTree = "<group>"; };
 		CF92465726413221002180D3 /* MovieDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModel.swift; sourceTree = "<group>"; };
-		CF92465A26413231002180D3 /* MovieListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListItemViewModel.swift; sourceTree = "<group>"; };
+		CF92466B2642DDBC002180D3 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		CF92466E2642DE0A002180D3 /* String+LocalizableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LocalizableExtension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				CF92463E26412FCD002180D3 /* ViewModels */,
 				CF92463D26412FBA002180D3 /* Models */,
 				CF92463426410A4B002180D3 /* Resources */,
+				CF9246682642D7B8002180D3 /* Utilities */,
 				CF92461E2640FE43002180D3 /* AppDelegate.swift */,
 				CF9246242640FE43002180D3 /* Main.storyboard */,
 				CF9246272640FE48002180D3 /* Assets.xcassets */,
@@ -103,7 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				CF924654264131F4002180D3 /* MoviesListViewModel.swift */,
-				CF92465A26413231002180D3 /* MovieListItemViewModel.swift */,
 				CF92465726413221002180D3 /* MovieDetailsViewModel.swift */,
 			);
 			path = ViewModels;
@@ -133,6 +135,15 @@
 				CF92464C264130C3002180D3 /* MoviesListItemViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		CF9246682642D7B8002180D3 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				CF92466B2642DDBC002180D3 /* Localizable.strings */,
+				CF92466E2642DE0A002180D3 /* String+LocalizableExtension.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +209,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF92466C2642DDBC002180D3 /* Localizable.strings in Resources */,
 				CF92462B2640FE48002180D3 /* LaunchScreen.storyboard in Resources */,
 				CF9246282640FE48002180D3 /* Assets.xcassets in Resources */,
 				CF92463626410A63002180D3 /* movies.json in Resources */,
@@ -218,8 +230,8 @@
 				CF92464D264130C3002180D3 /* MoviesListItemViewCell.swift in Sources */,
 				CF924655264131F4002180D3 /* MoviesListViewModel.swift in Sources */,
 				CF92464126412FF2002180D3 /* Movie.swift in Sources */,
-				CF92465B26413231002180D3 /* MovieListItemViewModel.swift in Sources */,
 				CF92464626413021002180D3 /* MoviesListViewController.swift in Sources */,
+				CF92466F2642DE0A002180D3 /* String+LocalizableExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

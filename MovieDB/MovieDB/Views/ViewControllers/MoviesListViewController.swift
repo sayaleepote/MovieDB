@@ -8,10 +8,23 @@
 import UIKit
 
 class MoviesListViewController: UIViewController {
-    private let viewModel: MoviesListViewModel = MoviesListViewModel()
+    
+    // MARK: - Constants
+    struct Constants {
+        static let moviesListItemCellIdentifier = "MoviesListItemViewCell"
+    }
+    
+    // MARK: - Properties
+    private let viewModel: MoviesListViewModel
     
     // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
+    
+    // MARK: - init
+    required init?(coder: NSCoder) {
+        viewModel = MoviesListViewModel()
+        super.init(coder: coder)
+    }
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -21,11 +34,10 @@ class MoviesListViewController: UIViewController {
     }
     
     func setupView() {
-        self.title = "Movies"
+        self.title = "MoviesList.Title".localized()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableFooterView = UIView()
-        tableView.prefetchDataSource = .none
     }
 }
 
@@ -36,7 +48,7 @@ extension MoviesListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesListItemViewCell", for: indexPath) as? MoviesListItemViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: Constants.moviesListItemCellIdentifier, for: indexPath) as? MoviesListItemViewCell {
             let movie = viewModel.getMovie(at: indexPath.row)
             cell.setupMovieCell(movie: movie)
             return cell

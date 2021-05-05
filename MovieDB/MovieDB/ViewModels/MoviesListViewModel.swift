@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// ViewModel for movies list view
 class MoviesListViewModel {
     
     private var moviesList = [Movie]()
@@ -26,6 +27,7 @@ class MoviesListViewModel {
     }
 }
 
+// MARK: - Private Methods
 private extension MoviesListViewModel {
     func readJson(from fileName: String) -> Data? {
         do {
