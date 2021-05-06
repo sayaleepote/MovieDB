@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol MoviesListViewModelDelegate: class {
+    func activityIndicator(isShown: Bool)
+    func reloadMoviesList()
+}
+
 class MoviesListViewController: UIViewController {
     
     // MARK: - Constants
@@ -18,9 +23,11 @@ class MoviesListViewController: UIViewController {
     
     // MARK: - Properties
     private let viewModel: MoviesListViewModel
+    private let refreshControl = UIRefreshControl()
     
     // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - init
     required init?(coder: NSCoder) {
@@ -31,15 +38,34 @@ class MoviesListViewController: UIViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.loadData()
+        loadMovies()
         setupView()
     }
     
-    func setupView() {
+    // MARK: - Private setup methods
+    private func loadMovies() {
+        viewModel.delegate = self
+        viewModel.loadData()
+    }
+    
+    private func setupView() {
         self.title = "MoviesList.Title".localized()
+        setupTableView()
+    }
+    
+    private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableFooterView = UIView()
+        
+        // Add refresh control to table view
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshMoviesList(_:)), for: .valueChanged)
+    }
+    
+    @objc private func refreshMoviesList(_ sender: Any) {
+        viewModel.refreshData()
+        refreshControl.endRefreshing()
     }
 }
 
@@ -73,3 +99,22 @@ extension MoviesListViewController: UITableViewDelegate {
     }
 }
 
+// MARK: - MoviesListViewModelDelegate
+extension MoviesListViewController: MoviesListViewModelDelegate {
+    func activityIndicator(isShown: Bool) {
+        DispatchQueue.main.async {
+            if isShown {
+                self.activityIndicator.isHidden = false
+                self.activityIndicator.startAnimating()
+            } else {
+                self.activityIndicator.stopAnimating()
+            }
+        }
+    }
+    
+    func reloadMoviesList() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+}

@@ -6,16 +6,33 @@
 //
 
 import Foundation
+import Kingfisher
 
 /// ViewModel for movies list view
 class MoviesListViewModel {
     
     private var moviesList = [Movie]()
+    weak var delegate: MoviesListViewModelDelegate?
     
     func loadData() {
-        if let moviesJsonData = self.readJson(from: "movies") {
-            self.setMoviesList(from: moviesJsonData)
+        delegate?.activityIndicator(isShown: true)
+        let urlString = "https://www.dropbox.com/s/q1ins5dsldsojzt/movies.json?dl=1"
+
+        self.downloadJson(from: urlString) { [weak self] (result) in
+            switch result {
+            case .success(let data):
+                self?.setMoviesList(from: data)
+                self?.delegate?.reloadMoviesList()
+            case .failure(let error):
+                debugPrint("Unable to download json from the url: \(error)")
+            }
+            self?.delegate?.activityIndicator(isShown: false)
         }
+    }
+    
+    func refreshData() {
+        KingfisherManager.shared.cache.clearCache()
+        loadData()
     }
     
     func getMovieCount() -> Int {
@@ -29,19 +46,20 @@ class MoviesListViewModel {
 
 // MARK: - Private Methods
 private extension MoviesListViewModel {
-    func readJson(from fileName: String) -> Data? {
-        do {
-            if let bundlePath = Bundle.main.path(forResource: fileName,
-                                                 ofType: "json"),
-                let jsonData = try String(contentsOfFile: bundlePath).data(using: .utf8) {
-                return jsonData
+    
+    func downloadJson(from urlString: String,
+                              completion: @escaping (Result<Data, Error>) -> Void) {
+        if let url = URL(string: urlString) {
+            let urlSession = URLSession(configuration: .default).dataTask(with: url) { (data, response, error) in
+                if let data = data {
+                    completion(.success(data))
+                }
+                if let error = error {
+                    completion(.failure(error))
+                }
             }
-        } catch {
-            debugPrint("Unable to read json data from file: \(error)")
-            return nil
+            urlSession.resume()
         }
-        
-        return nil
     }
     
     func setMoviesList(from jsonData: Data) {

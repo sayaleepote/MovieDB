@@ -16,7 +16,7 @@ class MoviesListItemViewCell: UITableViewCell {
     }
     
     // MARK: - Properties
-    var viewModel: MovieDetailsViewModel?
+    private var viewModel: MovieDetailsViewModel?
 
     // MARK: - IBOutlets
     @IBOutlet weak var movieNameLabel: UILabel!

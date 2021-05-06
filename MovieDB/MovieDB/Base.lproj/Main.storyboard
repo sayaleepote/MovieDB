@@ -61,12 +61,19 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="teX-IS-Dl9">
+                                <rect key="frame" x="195.66666666666666" y="444.66666666666669" width="37" height="37"/>
+                                <color key="tintColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="color" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="tintColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="zyx-zo-31B" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="14V-63-cH1"/>
+                            <constraint firstItem="teX-IS-Dl9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1qp-8R-gpR"/>
+                            <constraint firstItem="teX-IS-Dl9" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="3dZ-3I-eCW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zyx-zo-31B" secondAttribute="trailing" id="46b-61-YzM"/>
                             <constraint firstItem="zyx-zo-31B" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nSk-Cg-0N8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zyx-zo-31B" secondAttribute="bottom" id="pa9-FY-lKv"/>
@@ -74,6 +81,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="YI2-tg-tUD"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="teX-IS-Dl9" id="sON-z4-RvI"/>
                         <outlet property="tableView" destination="zyx-zo-31B" id="PYc-tH-OIs"/>
                     </connections>
                 </viewController>
