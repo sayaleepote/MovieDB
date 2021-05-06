@@ -12,6 +12,8 @@ class MoviesListViewController: UIViewController {
     // MARK: - Constants
     struct Constants {
         static let moviesListItemCellIdentifier = "MoviesListItemViewCell"
+        static let storyBoardName = "Main"
+        static let movieDetailsViewController = "MovieDetailsViewController"
     }
     
     // MARK: - Properties
@@ -61,7 +63,13 @@ extension MoviesListViewController: UITableViewDataSource {
 // MARK:- UITableViewDelegate
 extension MoviesListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: Move to Movie Details screen
+        let mainStoryboard = UIStoryboard.init(name: Constants.storyBoardName,
+                                               bundle: nil)
+        if let movieDetailsViewController = mainStoryboard.instantiateViewController(withIdentifier: Constants.movieDetailsViewController) as? MovieDetailsViewController {
+            let selectedMovie = viewModel.getMovie(at: indexPath.row)
+            movieDetailsViewController.setupViewModel(movie: selectedMovie)
+            self.navigationController?.pushViewController(movieDetailsViewController, animated: true)
+        }
     }
 }
 

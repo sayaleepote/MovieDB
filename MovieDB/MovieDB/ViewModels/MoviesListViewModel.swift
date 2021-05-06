@@ -46,7 +46,7 @@ private extension MoviesListViewModel {
     
     func setMoviesList(from jsonData: Data) {
         do {
-            let decodedJson = try JSONDecoder().decode(DecodedArray.self,
+            let decodedJson = try JSONDecoder().decode(MovieArray.self,
                                                        from: jsonData)
             self.moviesList = decodedJson.movies
         } catch {

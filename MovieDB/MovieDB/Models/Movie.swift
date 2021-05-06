@@ -14,6 +14,6 @@ struct Movie: Decodable {
     let releaseDate: String?
 }
 
-struct DecodedArray: Decodable {
+struct MovieArray: Decodable {
     let movies: [Movie]
 }

@@ -8,3 +8,7 @@
 
 // MoviesList Screen
 "MoviesList.Title" = "Movies";
+
+// MovieDetails Screen
+"MovieDetails.ReleaseDate" = "Release Date";
+"MovieDetails.Rating" = "Rating";

@@ -27,12 +27,13 @@ class MovieDetailsViewModel {
         return nil
     }
     
-    func getMovieReleaseDate() -> String? {
-        return movie.releaseDate
+    func getMovieReleaseDateString() -> String? {
+        guard let releaseDate = movie.releaseDate else { return nil }
+        return "MovieDetails.ReleaseDate".localized() + ": " + releaseDate
     }
     
-    func getMovieRating() -> Double? {
-        return movie.rating
+    func getMovieRatingString() -> String? {
+        guard let rating = movie.rating else { return nil }
+        return "MovieDetails.Rating".localized() + ": " + String(rating)
     }
-    
- }
+}
