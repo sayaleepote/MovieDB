@@ -11,22 +11,32 @@ import Kingfisher
 /// ViewModel for movies list view
 class MoviesListViewModel {
     
+    // MARK: - Constants
+    struct Constants {
+        static let environmentName = "debug"
+        static let baseURL = "https://www.dropbox.com"
+    }
+    
+    // MARK: - Properties
     private var moviesList = [Movie]()
+    private let requestDispatcher = RequestDispatcher(environment: Environment(name: Constants.environmentName,
+                                                                               base: Constants.baseURL))
     weak var delegate: MoviesListViewModelDelegate?
     
+    // MARK: - Methods
     func loadData() {
         delegate?.activityIndicator(isShown: true)
-        let urlString = "https://www.dropbox.com/s/q1ins5dsldsojzt/movies.json?dl=1"
-
-        self.downloadJson(from: urlString) { [weak self] (result) in
-            switch result {
-            case .success(let data):
-                self?.setMoviesList(from: data)
-                self?.delegate?.reloadMoviesList()
-            case .failure(let error):
-                debugPrint("Unable to download json from the url: \(error)")
-            }
-            self?.delegate?.activityIndicator(isShown: false)
+        do {
+            try GetMoviesOperation<[Movie]>().execute(in: requestDispatcher, success: { (moviesList) in
+                self.moviesList = moviesList
+                self.delegate?.reloadMoviesList()
+                self.delegate?.activityIndicator(isShown: false)
+            }, failure: { error in
+                debugPrint(error)
+                self.delegate?.activityIndicator(isShown: false)
+            })
+        } catch {
+            delegate?.activityIndicator(isShown: false)
         }
     }
     
@@ -41,34 +51,5 @@ class MoviesListViewModel {
     
     func getMovie(at index: Int) -> Movie {
         return moviesList[index]
-    }
-}
-
-// MARK: - Private Methods
-private extension MoviesListViewModel {
-    
-    func downloadJson(from urlString: String,
-                              completion: @escaping (Result<Data, Error>) -> Void) {
-        if let url = URL(string: urlString) {
-            let urlSession = URLSession(configuration: .default).dataTask(with: url) { (data, response, error) in
-                if let data = data {
-                    completion(.success(data))
-                }
-                if let error = error {
-                    completion(.failure(error))
-                }
-            }
-            urlSession.resume()
-        }
-    }
-    
-    func setMoviesList(from jsonData: Data) {
-        do {
-            let decodedJson = try JSONDecoder().decode(MovieArray.self,
-                                                       from: jsonData)
-            self.moviesList = decodedJson.movies
-        } catch {
-            debugPrint("Unable to decode movies list from the json data: \(error)")
-        }
     }
 }

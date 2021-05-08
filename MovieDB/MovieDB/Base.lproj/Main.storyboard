@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jU6-0e-Jkk">
-    <device id="retina6_7" orientation="landscape" appearance="light"/>
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -14,18 +14,18 @@
             <objects>
                 <viewController storyboardIdentifier="MoviesListViewController" id="BYZ-38-t0r" customClass="MoviesListViewController" customModule="MovieDB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="926" height="428"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zyx-zo-31B">
-                                <rect key="frame" x="44" y="44" width="838" height="363"/>
+                                <rect key="frame" x="0.0" y="140" width="428" height="752"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MoviesListItemViewCell" rowHeight="136" id="Z5M-lR-uUc" customClass="MoviesListItemViewCell" customModule="MovieDB" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="838" height="136"/>
+                                        <rect key="frame" x="0.0" y="28" width="428" height="136"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Z5M-lR-uUc" id="fTW-Gb-EQa">
-                                            <rect key="frame" x="0.0" y="0.0" width="838" height="136"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="428" height="136"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="VPt-RJ-Xya">
@@ -36,7 +36,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwx-LQ-q92">
-                                                    <rect key="frame" x="145" y="23" width="673" height="90"/>
+                                                    <rect key="frame" x="145" y="23" width="263" height="90"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                                     <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -62,7 +62,7 @@
                                 </prototypes>
                             </tableView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="teX-IS-Dl9">
-                                <rect key="frame" x="444.66666666666669" y="195.66666666666666" width="37" height="37"/>
+                                <rect key="frame" x="195.66666666666666" y="444.66666666666669" width="37" height="37"/>
                                 <color key="tintColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="color" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
@@ -94,17 +94,17 @@
             <objects>
                 <viewController storyboardIdentifier="MovieDetailsViewController" id="drw-4T-R6j" customClass="MovieDetailsViewController" customModule="MovieDB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GRz-Lg-g4b">
-                        <rect key="frame" x="0.0" y="0.0" width="926" height="428"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DUw-ba-pFm">
-                                <rect key="frame" x="44" y="0.0" width="838" height="407"/>
+                                <rect key="frame" x="0.0" y="44" width="428" height="848"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFY-rK-TNE" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="838" height="407"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="490"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="Mlk-U2-DED">
-                                                <rect key="frame" x="32" y="20.333333333333343" width="293.33333333333331" height="366.33333333333326"/>
+                                                <rect key="frame" x="64" y="20" width="300" height="400"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="300" id="1uU-7w-0Rh"/>
                                                     <constraint firstAttribute="width" constant="300" id="hQH-DT-IPB"/>
@@ -124,14 +124,14 @@
                                                 </variation>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvW-ky-I9W">
-                                                <rect key="frame" x="808" y="25.333333333333332" width="0.0" height="0.0"/>
+                                                <rect key="frame" x="214" y="450" width="0.0" height="0.0"/>
                                                 <color key="tintColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
                                                 <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLc-fw-fCP">
-                                                <rect key="frame" x="808" y="45.333333333333343" width="0.0" height="40"/>
+                                                <rect key="frame" x="214" y="470" width="0.0" height="0.0"/>
                                                 <color key="tintColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="fE7-j8-ivg"/>
@@ -151,7 +151,7 @@
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0o-S7-JXN">
-                                                <rect key="frame" x="808" y="105.33333333333333" width="0.0" height="39.999999999999986"/>
+                                                <rect key="frame" x="214" y="490" width="0.0" height="0.0"/>
                                                 <color key="tintColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="L9p-zS-2fs"/>
@@ -179,7 +179,7 @@
                                             <constraint firstItem="Mlk-U2-DED" firstAttribute="top" secondItem="dFY-rK-TNE" secondAttribute="top" constant="20" id="7Aw-Q8-EhI"/>
                                             <constraint firstItem="Mlk-U2-DED" firstAttribute="centerY" secondItem="dFY-rK-TNE" secondAttribute="centerY" id="BJu-7S-dLq"/>
                                             <constraint firstAttribute="bottom" secondItem="G0o-S7-JXN" secondAttribute="bottom" id="Dxc-d6-fjL"/>
-                                            <constraint firstItem="fvW-ky-I9W" firstAttribute="top" secondItem="Mlk-U2-DED" secondAttribute="bottom" constant="35" id="Niv-Gv-WIf"/>
+                                            <constraint firstItem="fvW-ky-I9W" firstAttribute="top" secondItem="Mlk-U2-DED" secondAttribute="bottom" constant="30" id="Niv-Gv-WIf"/>
                                             <constraint firstItem="nLc-fw-fCP" firstAttribute="top" secondItem="fvW-ky-I9W" secondAttribute="bottom" constant="20" id="OV5-V2-mo9"/>
                                             <constraint firstItem="fvW-ky-I9W" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Mlk-U2-DED" secondAttribute="trailing" constant="30" id="Plv-tt-Wgz">
                                                 <variation key="heightClass=compact" constant="8" symbolic="YES"/>
@@ -209,12 +209,12 @@
                                                 <exclude reference="Plv-tt-Wgz"/>
                                                 <exclude reference="UBD-UB-J2x"/>
                                                 <exclude reference="atc-GI-4Fn"/>
-                                                <exclude reference="5ok-9v-voO"/>
-                                                <exclude reference="vws-N4-yJo"/>
-                                                <exclude reference="wg7-cQ-Iu9"/>
                                                 <exclude reference="ajD-UW-1Ff"/>
                                                 <exclude reference="gVt-Hg-JiY"/>
                                                 <exclude reference="mnh-6e-i5a"/>
+                                                <exclude reference="5ok-9v-voO"/>
+                                                <exclude reference="vws-N4-yJo"/>
+                                                <exclude reference="wg7-cQ-Iu9"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=compact">
@@ -229,17 +229,17 @@
                                                 <include reference="Plv-tt-Wgz"/>
                                                 <include reference="UBD-UB-J2x"/>
                                                 <include reference="atc-GI-4Fn"/>
+                                                <exclude reference="OV5-V2-mo9"/>
+                                                <exclude reference="Q9T-EZ-0wS"/>
+                                                <include reference="ajD-UW-1Ff"/>
+                                                <include reference="gVt-Hg-JiY"/>
+                                                <include reference="mnh-6e-i5a"/>
                                                 <exclude reference="4x1-zw-z3q"/>
                                                 <include reference="5ok-9v-voO"/>
                                                 <exclude reference="Dxc-d6-fjL"/>
                                                 <exclude reference="RSC-zT-iCM"/>
                                                 <include reference="vws-N4-yJo"/>
                                                 <include reference="wg7-cQ-Iu9"/>
-                                                <exclude reference="OV5-V2-mo9"/>
-                                                <exclude reference="Q9T-EZ-0wS"/>
-                                                <include reference="ajD-UW-1Ff"/>
-                                                <include reference="gVt-Hg-JiY"/>
-                                                <include reference="mnh-6e-i5a"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -258,20 +258,22 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="tintColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Mlk-U2-DED" firstAttribute="width" secondItem="WVQ-w3-HF4" secondAttribute="width" multiplier="0.35" id="69R-cJ-2t6"/>
                             <constraint firstItem="DUw-ba-pFm" firstAttribute="top" secondItem="WVQ-w3-HF4" secondAttribute="top" id="Aed-XU-Lwr"/>
                             <constraint firstItem="DUw-ba-pFm" firstAttribute="leading" secondItem="WVQ-w3-HF4" secondAttribute="leading" id="Et8-Hn-E63"/>
                             <constraint firstItem="Mlk-U2-DED" firstAttribute="height" secondItem="WVQ-w3-HF4" secondAttribute="height" multiplier="0.9" id="FEm-JH-iHv"/>
                             <constraint firstItem="DUw-ba-pFm" firstAttribute="trailing" secondItem="WVQ-w3-HF4" secondAttribute="trailing" id="aZv-p9-eBA"/>
-                            <constraint firstItem="Mlk-U2-DED" firstAttribute="width" secondItem="WVQ-w3-HF4" secondAttribute="width" multiplier="0.35" id="tTf-2J-xPs"/>
                             <constraint firstItem="DUw-ba-pFm" firstAttribute="bottom" secondItem="WVQ-w3-HF4" secondAttribute="bottom" id="wyX-ed-1Hz"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="69R-cJ-2t6"/>
                                 <exclude reference="FEm-JH-iHv"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
+                                <include reference="69R-cJ-2t6"/>
                                 <include reference="FEm-JH-iHv"/>
                             </mask>
                         </variation>
@@ -293,7 +295,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jU6-0e-Jkk" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="J6x-0k-HMZ">
-                        <rect key="frame" x="0.0" y="0.0" width="926" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="428" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="largeTitleTextAttributes">
