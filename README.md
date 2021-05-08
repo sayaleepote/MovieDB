@@ -4,6 +4,10 @@ Universal application to show list of movies and their details.
 Architectural Pattern:
 - MVVM (Model View ViewModel)
 
+Network Layer Design:
+- Protocol Oriented Programming
+- No fat singletons!
+
 Third party library used:
 - Kingfisher for asynchronous loading and caching of images
 
@@ -21,4 +25,4 @@ Device supported:
 UI development:
 - Using storyboard
 - Autolayouts
-
+- Size classes
