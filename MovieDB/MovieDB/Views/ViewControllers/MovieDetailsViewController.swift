@@ -35,6 +35,7 @@ class MovieDetailsViewController: UIViewController {
     }
     
     func setupUI() {
+        self.navigationController?.navigationBar.prefersLargeTitles = false
         movieTitle.text = viewModel?.getMovieTitle()
         movieReleaseDate.text = viewModel?.getMovieReleaseDateString()
         movieRating.text = viewModel?.getMovieRatingString()

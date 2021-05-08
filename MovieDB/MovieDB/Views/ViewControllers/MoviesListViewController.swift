@@ -49,6 +49,7 @@ class MoviesListViewController: UIViewController {
     }
     
     private func setupView() {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         self.title = "MoviesList.Title".localized()
         setupTableView()
     }
